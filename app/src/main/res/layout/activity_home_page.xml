@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".HomePage"
     android:id="@+id/drawer_layout"
-    tools:openDrawer="start"
     android:orientation="vertical">
 
     <com.google.android.material.navigation.NavigationView
@@ -74,21 +73,24 @@
             android:layout_marginTop="100dp"
             android:backgroundTint="@null"
             android:padding="5dp"
-            android:text="Button"
+            android:text="Today's Pickup"
+            android:textAllCaps="false"
             android:textSize="24sp"
-            app:layout_constraintVertical_bias="0.42" />
+            app:layout_constraintVertical_bias="0.42"
+            android:onClick="goToToday"/>
 
         <Button
             android:id="@+id/button2"
-            android:layout_below="@id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/button"
             android:layout_centerHorizontal="true"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="30dp"
             android:backgroundTint="@null"
             android:padding="5dp"
-            android:text="Button"
+            android:textAllCaps="false"
+            android:text="Future Pickup"
             android:textSize="24sp"
             app:layout_constraintVertical_bias="0.58" />
     </RelativeLayout>

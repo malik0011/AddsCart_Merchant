@@ -60,4 +60,9 @@ public class HomePage extends AppCompatActivity {
             }
         });
     }
+
+    public void goToToday(View view) {
+        Toast.makeText(this, "Opening Today's pickup..", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(this,TodaysPickup.class));
+    }
 }

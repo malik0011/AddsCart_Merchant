@@ -10,12 +10,13 @@ import androidx.recyclerview.widget.RecyclerView;
 public class myviewholder extends RecyclerView.ViewHolder {
 
     TextView name,OrderIdTv,ItemsView;
-    Button TrackBtn;
+    Button TrackBtn,delete;
     public myviewholder(@NonNull View itemView) {
         super(itemView);
         name = (TextView)itemView.findViewById(R.id.UserName);
         OrderIdTv = (TextView) itemView.findViewById(R.id.OrderId);
         ItemsView = (TextView) itemView.findViewById(R.id.Items);
-       // TrackBtn = (Button) itemView.findViewById(R.id.trackOrder);
+        TrackBtn = (Button) itemView.findViewById(R.id.trackOrder);
+        delete = (Button) itemView.findViewById(R.id.Delete);
     }
 }
