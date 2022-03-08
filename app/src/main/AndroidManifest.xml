@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AddsCartMerchant">
         <activity
+            android:name=".TodaysPickup"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

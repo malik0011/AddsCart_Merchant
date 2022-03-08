@@ -4,6 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Ayan/Desktop/AS2DEV/AddsCart Merchant/app/src/main/res/layout/activity_main.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/Ayan/Desktop/AS2DEV/AddsCart Merchant/app/src/main/res/layout/activity_todays_pickup.xml" value="0.136" />
+        <entry key="..\:/Users/Ayan/Desktop/AS2DEV/AddsCart Merchant/app/src/main/res/layout/order_list.xml" value="0.4" />
+        <entry key="..\:/Users/Ayan/Desktop/AS2DEV/AddsCart Merchant/app/src/main/res/layout/singlerow.xml" value="0.25364583333333335" />
       </map>
     </option>
   </component>
