@@ -4,13 +4,23 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Ayan/Desktop/AS2DEV/AddsCart Merchant/app/src/main/res/layout/activity_main.xml" value="0.25364583333333335" />
+
+        <entry key="..\:/Users/spand/AndroidStudioProjects/AddsCart_Merchant/app/src/main/res/drawable/round_actionbar.xml" value="0.1355" />
+        <entry key="..\:/Users/spand/AndroidStudioProjects/AddsCart_Merchant/app/src/main/res/drawable/rounded_button.xml" value="0.1355" />
+        <entry key="..\:/Users/spand/AndroidStudioProjects/AddsCart_Merchant/app/src/main/res/drawable/xml_menu.xml" value="0.1355" />
+        <entry key="..\:/Users/spand/AndroidStudioProjects/AddsCart_Merchant/app/src/main/res/font/amaranth.xml" value="0.25092592592592594" />
+        <entry key="..\:/Users/spand/AndroidStudioProjects/AddsCart_Merchant/app/src/main/res/layout/activity_admin_panel.xml" value="0.20521590423257802" />
+        <entry key="..\:/Users/spand/AndroidStudioProjects/AddsCart_Merchant/app/src/main/res/layout/activity_home_page.xml" value="0.2" />
+        <entry key="..\:/Users/spand/AndroidStudioProjects/AddsCart_Merchant/app/src/main/res/layout/activity_main.xml" value="0.22780797101449277" />
+        <entry key="..\:/Users/spand/AndroidStudioProjects/AddsCart_Merchant/app/src/main/res/layout/menu_header.xml" value="0.20521590423257802" />
+        <entry key="..\:/Users/spand/AndroidStudioProjects/AddsCart_Merchant/app/src/main/res/menu/menu.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/Ayan/Desktop/AS2DEV/AddsCart Merchant/app/src/main/res/layout/activity_todays_pickup.xml" value="0.136" />
         <entry key="..\:/Users/Ayan/Desktop/AS2DEV/AddsCart Merchant/app/src/main/res/layout/order_list.xml" value="0.4" />
         <entry key="..\:/Users/Ayan/Desktop/AS2DEV/AddsCart Merchant/app/src/main/res/layout/singlerow.xml" value="0.25364583333333335" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
