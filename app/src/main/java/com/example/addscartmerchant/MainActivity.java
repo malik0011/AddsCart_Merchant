@@ -72,4 +72,8 @@ public class MainActivity extends AppCompatActivity {
             }
         }, 3000);
     }
+
+//    public void goToToday(View view) {
+//        startActivity(new Intent(this,TodaysPickup.class));
+//    }
 }
