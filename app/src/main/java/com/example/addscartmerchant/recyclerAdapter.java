@@ -37,7 +37,7 @@ public class recyclerAdapter extends RecyclerView.Adapter<myviewholder> {
         holder.TrackBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("google.navigation:q=22.6554350,88.1164750&mode=l"));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("google.navigation:q="+data.get(position).getUserLat()+","+data.get(position).getUserLon()+"&mode=l"));
                 intent.setPackage("com.google.android.apps.maps");
                 if (intent.resolveActivity(view.getContext().getPackageManager())!= null){
                     view.getContext().startActivity(intent);

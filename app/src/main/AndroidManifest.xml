@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AddsCartMerchant">
         <activity
+            android:name=".FuturesPickup"
+            android:exported="false" />
+        <activity
             android:name=".AdminPanel"
             android:exported="false" />
         <activity
@@ -17,8 +20,8 @@
             android:exported="false" />
         <activity
             android:name=".HomePage"
-           android:exported="false" />
-      <activity
+            android:exported="false" />
+        <activity
             android:name=".TodaysPickup"
             android:exported="false" />
         <activity

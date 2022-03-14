@@ -19,7 +19,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class TodaysPickup extends AppCompatActivity {
+public class FuturesPickup extends AppCompatActivity {
     private ArrayList<Order> OrderList;
     private RecyclerView recyclerView;
     recyclerAdapter adapter;
@@ -38,7 +38,7 @@ public class TodaysPickup extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_todays_pickup);
+        setContentView(R.layout.activity_futures_pickup);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         recyclerView = (RecyclerView) findViewById(R.id.RecycleView);
@@ -61,7 +61,7 @@ public class TodaysPickup extends AppCompatActivity {
         int finaldate = Integer.valueOf(substr2);
         String finalformatdate = formatdate.substring(0,3)+finaldate+formatdate.substring(5);
 
-        DatabaseReference getdata = fdata.getReference("TodayPickup");
+        DatabaseReference getdata = fdata.getReference("FuturePickup");
         getdata.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
