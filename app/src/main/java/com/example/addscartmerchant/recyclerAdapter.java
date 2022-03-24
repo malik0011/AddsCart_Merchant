@@ -138,6 +138,8 @@ public class recyclerAdapter extends RecyclerView.Adapter<myviewholder> {
         holder.name.setText(data.get(position).getUserName());
         holder.OrderIdTv.setText(data.get(position).getOrderId());
         holder.ItemsView.setText(data.get(position).getUserItems());
+        holder.address.setText((data.get(position).getAddress()));
+        holder.mode.setText((data.get(position).getMode()));
         holder.TrackBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

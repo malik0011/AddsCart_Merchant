@@ -7,10 +7,11 @@ public class Order {
     String userItems;
     String OrderId;
     String userLat,userLon;
+    String address,mode;
 
     public Order(){}
 
-    public Order(String userName, String userPhoneNo, String userLatLon, String userItems, String orderId, String userLat, String userLon) {
+    public Order(String userName, String userPhoneNo, String userLatLon, String userItems, String orderId, String userLat, String userLon, String address, String mode) {
         UserName = userName;
         this.userPhoneNo = userPhoneNo;
         this.userLatLon = userLatLon;
@@ -18,6 +19,8 @@ public class Order {
         OrderId = orderId;
         this.userLat = userLat;
         this.userLon = userLon;
+        this.address = address;
+        this.mode = mode;
     }
 
     public String getUserName() {
@@ -75,51 +78,85 @@ public class Order {
     public void setUserLon(String userLon) {
         this.userLon = userLon;
     }
-    //    public void setUserName(String userName) {
-//        UserName = userName;
-//    }
-//
-//    public void setUserPhoneNo(String userPhoneNo) {
-//        this.userPhoneNo = userPhoneNo;
-//    }
-//
-//    public void setUserLatLon(String userLatLon) {
-//        this.userLatLon = userLatLon;
-//    }
-//
-//    public void setUserItems(String userItems) {
-//        this.userItems = userItems;
-//    }
-//
-//    public void setOrderId(String orderId) {
-//        OrderId = orderId;
-//    }
-//
-//    public Order(String userName, String userPhoneNo, String userLatLon, String userItems, String orderId) {
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getMode() {
+        return mode;
+    }
+
+    public void setMode(String mode) {
+        this.mode = mode;
+    }
+//    public Order(String userName, String userPhoneNo, String userLatLon, String userItems, String orderId, String userLat, String userLon) {
 //        UserName = userName;
 //        this.userPhoneNo = userPhoneNo;
 //        this.userLatLon = userLatLon;
 //        this.userItems = userItems;
 //        OrderId = orderId;
+//        this.userLat = userLat;
+//        this.userLon = userLon;
 //    }
-//
+
 //    public String getUserName() {
 //        return UserName;
+//    }
+//
+//    public void setUserName(String userName) {
+//        UserName = userName;
 //    }
 //
 //    public String getUserPhoneNo() {
 //        return userPhoneNo;
 //    }
 //
+//    public void setUserPhoneNo(String userPhoneNo) {
+//        this.userPhoneNo = userPhoneNo;
+//    }
+//
 //    public String getUserLatLon() {
 //        return userLatLon;
+//    }
+//
+//    public void setUserLatLon(String userLatLon) {
+//        this.userLatLon = userLatLon;
 //    }
 //
 //    public String getUserItems() {
 //        return userItems;
 //    }
 //
+//    public void setUserItems(String userItems) {
+//        this.userItems = userItems;
+//    }
+//
 //    public String getOrderId() {
 //        return OrderId;
+//    }
+//
+//    public void setOrderId(String orderId) {
+//        OrderId = orderId;
+//    }
+//
+//    public String getUserLat() {
+//        return userLat;
+//    }
+//
+//    public void setUserLat(String userLat) {
+//        this.userLat = userLat;
+//    }
+//
+//    public String getUserLon() {
+//        return userLon;
+//    }
+//
+//    public void setUserLon(String userLon) {
+//        this.userLon = userLon;
 //    }
 }

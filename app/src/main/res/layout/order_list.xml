@@ -6,7 +6,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="190dp"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -25,7 +25,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="270dp"
+                    android:layout_width="280dp"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
@@ -64,9 +64,58 @@
                             android:textSize="14dp"
                             android:textStyle="bold" />
 
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="30dp"
+                            android:text="Mode:"
+                            android:textColor="@color/black"
+                            android:textSize="15dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/mode"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="3dp"
+                            android:text="Cash"
+                            android:textColor="#3B3A39"
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
+
 
                     </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:orientation="vertical">
 
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Address:"
+                            android:textStyle="bold"
+                            android:textColor="#FFEB3B" />
+
+                        <ScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:id="@+id/address"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginBottom="5dp"
+                                android:layout_marginRight="5dp"
+                                android:fontFamily="@font/ubuntu"
+                                android:text="10,Ghantra,Haripal,India,712308"
+                                android:textColor="#000000"
+                                android:textSize="12dp" />
+                        </ScrollView>
+                    </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -77,7 +126,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Items:"
-                            android:textColor="@color/black" />
+                            android:textStyle="bold"
+                            android:textColor="#573809" />
 
                         <ScrollView
                             android:layout_width="match_parent"
@@ -102,16 +152,6 @@
                             android:layout_marginLeft="-1dp"
                             android:padding="5dp"
                             >
-                            <Button
-                                android:id="@+id/Delete"
-                                android:padding="7dp"
-                                android:textColor="@color/green"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:backgroundTint="@color/black"
-                                android:text="Call Now"
-                                android:textAllCaps="false"
-                                />
                         </LinearLayout>
 
                     </LinearLayout>
@@ -126,7 +166,7 @@
 
                         android:id="@+id/userImage"
                         android:layout_width="match_parent"
-                        android:layout_height="100dp"
+                        android:layout_height="80dp"
                         android:padding="8dp"
                         android:src="@drawable/user" />
                     <LinearLayout
@@ -136,15 +176,25 @@
                         android:layout_marginTop="8dp"
                         android:gravity="center"
                         android:padding="5dp"
+                        android:orientation="vertical"
                         >
                         <Button
-                            android:layout_marginTop="2dp"
                             android:id="@+id/trackOrder"
                             android:padding="5dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/black"
                             android:text="Track Order"
+                            android:textAllCaps="false"
+                            />
+                        <Button
+                            android:id="@+id/Delete"
+
+                            android:textColor="@color/green"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/black"
+                            android:text="Call Now"
                             android:textAllCaps="false"
                             />
                     </LinearLayout>
