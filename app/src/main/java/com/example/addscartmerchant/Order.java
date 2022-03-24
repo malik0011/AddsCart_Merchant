@@ -8,6 +8,8 @@ public class Order {
     String OrderId;
     String userLat,userLon;
 
+    public Order(){}
+
     public Order(String userName, String userPhoneNo, String userLatLon, String userItems, String orderId, String userLat, String userLon) {
         UserName = userName;
         this.userPhoneNo = userPhoneNo;

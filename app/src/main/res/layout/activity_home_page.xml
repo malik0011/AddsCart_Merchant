@@ -72,12 +72,13 @@
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="100dp"
             android:backgroundTint="@null"
+            android:onClick="goToToday"
             android:padding="5dp"
+            android:enabled="false"
             android:text="Today's Pickup"
             android:textAllCaps="false"
             android:textSize="24sp"
-            app:layout_constraintVertical_bias="0.42"
-            android:onClick="goToToday"/>
+            app:layout_constraintVertical_bias="0.42" />
 
         <Button
             android:id="@+id/button2"
@@ -89,6 +90,7 @@
             android:layout_marginTop="30dp"
             android:backgroundTint="@null"
             android:padding="5dp"
+            android:enabled="false"
             android:onClick="goToFuture"
             android:text="Future Pickup"
             android:textAllCaps="false"

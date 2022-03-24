@@ -1,5 +1,6 @@
 package com.example.addscartmerchant;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -8,8 +9,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 
@@ -29,6 +33,83 @@ public class AdminPanel extends AppCompatActivity {
         others = findViewById(R.id.other);
         ewaste = findViewById(R.id.e_waste);
         iron= findViewById(R.id.iron);
+
+        fdata = FirebaseDatabase.getInstance();
+        fAuth = FirebaseAuth.getInstance();
+
+        DatabaseReference getpaper = fdata.getReference("UpdatedPrice").child("Paper");
+        getpaper.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                paper.setText((CharSequence) snapshot.getValue());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        DatabaseReference getplastic = fdata.getReference("UpdatedPrice").child("Plastic");
+        getplastic.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                plastic.setText((CharSequence) snapshot.getValue());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        DatabaseReference getmetal = fdata.getReference("UpdatedPrice").child("Metal");
+        getmetal.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                metal.setText((CharSequence) snapshot.getValue());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        DatabaseReference getothers = fdata.getReference("UpdatedPrice").child("Others");
+        getothers.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                others.setText((CharSequence) snapshot.getValue());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        DatabaseReference getewaste = fdata.getReference("UpdatedPrice").child("E-Waste");
+        getewaste.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ewaste.setText((CharSequence) snapshot.getValue());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        DatabaseReference getiron = fdata.getReference("UpdatedPrice").child("Iron");
+        getiron.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                iron.setText((CharSequence) snapshot.getValue());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
     }
 
     public void Update(View view) {
