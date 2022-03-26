@@ -30,6 +30,25 @@
                 android:layout_width="60dp"
                 android:layout_height="35dp"
                 android:src="@drawable/ic_pickup_black"/>
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Total Orders : "
+                android:gravity="center_vertical"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"/>
+            <TextView
+                android:id="@+id/allorders"
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="x"
+                android:gravity="center_vertical"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"/>
 
         </LinearLayout>
         <androidx.recyclerview.widget.RecyclerView

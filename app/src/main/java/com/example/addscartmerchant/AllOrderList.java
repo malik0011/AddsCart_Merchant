@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -25,12 +26,12 @@ public class AllOrderList extends AppCompatActivity {
     private ArrayList<Order> OrderList;
     private RecyclerView recyclerView;
     recyclerAdapterAllOrder adapter;
+    TextView allorders;
 
     FirebaseDatabase fdata;
     FirebaseAuth fAuth;
 
     ArrayList<String> ItemType = new ArrayList<String>();
-    ArrayList<String> FullAddress = new ArrayList<String>();
     ArrayList<String> Date = new ArrayList<String>();
     ArrayList<String> PhoneNumber = new ArrayList<String>();
     ArrayList<String> Latitude = new ArrayList<String>();
@@ -46,6 +47,8 @@ public class AllOrderList extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new recyclerAdapterAllOrder(dataQueue());
         recyclerView.setAdapter(adapter);
+        allorders = findViewById(R.id.allorders);
+
     }
 
     private ArrayList<Order> dataQueue() {
@@ -70,6 +73,8 @@ public class AllOrderList extends AppCompatActivity {
                     String data = dataSnapshot.getValue(String.class);
                     Date.add(data);
                 }
+                String key = String.valueOf(Date.size());
+                allorders.setText(key);
                 for(int i=0;i<Date.size();i++){
 //                        Phone Number
                         DatabaseReference refnumber = fdata.getReference("OrderId").child("Phone Number");
@@ -87,9 +92,7 @@ public class AllOrderList extends AppCompatActivity {
                                 getname.addValueEventListener(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                                        DatabaseReference putname = fdata.getReference("TodayPickup").child(PhoneNumber.get(finalI));
-                                        putname.child("name").setValue((String)snapshot.getValue());
+                                        String Name = (String) snapshot.getValue();
 
 //                                        Latitude
                                         DatabaseReference reflat = fdata.getReference("OrderId").child("Latitude");
@@ -150,7 +153,7 @@ public class AllOrderList extends AppCompatActivity {
                                                                                 String items = (String) ItemType.get(finalI);
                                                                                 String lat = (String) Latitude.get(finalI);
                                                                                 String lon = (String) Longitude.get(finalI);
-                                                                                String name = (String) "Ayan Malik";
+                                                                                String name = (String) Name;
                                                                                 String number = (String)PhoneNumber.get(finalI);
                                                                                 String Mode = (String) mode.get(finalI);
                                                                                 String Address = (String) address.get(finalI);

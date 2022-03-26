@@ -95,6 +95,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.WindowManager;
 
@@ -142,8 +143,6 @@ public class TodaysPickup extends AppCompatActivity {
 
         fAuth = FirebaseAuth.getInstance();
         fdata = FirebaseDatabase.getInstance();
-
-
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
         java.util.Date date = new Date();
         String formatdate = formatter.format(date);
@@ -178,5 +177,14 @@ public class TodaysPickup extends AppCompatActivity {
             }
         });
         return holder;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("TodayPickup");
+        ref.setValue(null);
+        startActivity(new Intent(this, HomePage.class));
+        finish();
     }
 }
