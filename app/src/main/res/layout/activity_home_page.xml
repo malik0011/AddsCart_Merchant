@@ -89,10 +89,27 @@
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="30dp"
             android:backgroundTint="@null"
-            android:padding="5dp"
             android:enabled="false"
             android:onClick="goToFuture"
+            android:padding="5dp"
             android:text="Future Pickup"
+            android:textAllCaps="false"
+            android:textSize="24sp"
+            app:layout_constraintVertical_bias="0.58" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/button"
+            android:layout_alignParentBottom="true"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="121dp"
+            android:layout_marginBottom="307dp"
+            android:backgroundTint="@null"
+            android:onClick="AlOrder"
+            android:padding="5dp"
+            android:text="All Orders"
             android:textAllCaps="false"
             android:textSize="24sp"
             app:layout_constraintVertical_bias="0.58" />

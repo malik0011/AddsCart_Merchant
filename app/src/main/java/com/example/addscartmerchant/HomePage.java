@@ -2038,4 +2038,8 @@ public class HomePage extends AppCompatActivity {
         Toast.makeText(this, "Opening Future's pickup..", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(this,FuturesPickup.class));
     }
+
+    public void AlOrder(View view) {
+        startActivity(new Intent(this,AllOrderList.class));
+    }
 }
