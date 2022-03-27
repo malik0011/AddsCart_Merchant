@@ -40,7 +40,7 @@ public class HomePage extends AppCompatActivity {
     ImageButton img;
     FirebaseDatabase fdata;
     FirebaseAuth fAuth;
-    Button Today,Future;
+    Button Today,Future,all,complete;
 
     ArrayList<String> ItemType = new ArrayList<String>();
     ArrayList<String> Date = new ArrayList<String>();
@@ -63,6 +63,8 @@ public class HomePage extends AppCompatActivity {
         img = findViewById(R.id.Img);
         Today = findViewById(R.id.button);
         Future = findViewById(R.id.button2);
+        all = findViewById(R.id.button3);
+        complete = findViewById(R.id.button4);
 
         fAuth = FirebaseAuth.getInstance();
         fdata = FirebaseDatabase.getInstance();
@@ -87,8 +89,10 @@ public class HomePage extends AppCompatActivity {
                 // Do something after 5s = 5000ms
                 Today.setEnabled(true);
                 Future.setEnabled(true);
+                all.setEnabled(true);
+                complete.setEnabled(true);
             }
-        }, 5000);
+        }, 4000);
 
 
 
@@ -183,7 +187,7 @@ public class HomePage extends AppCompatActivity {
                                                                                 putdata.child("number").setValue(PhoneNumber.get(finalI));
                                                                                 putdata.child("mode").setValue(mode.get(finalI));
                                                                                 putdata.child("address").setValue(address.get(finalI));
-
+                                                                                putdata.child("date").setValue(Date.get(finalI));
                                                                             }
 
                                                                             @Override
@@ -317,6 +321,7 @@ public class HomePage extends AppCompatActivity {
                                                                                             putdata.child("number").setValue(PhoneNumber.get(finalI));
                                                                                             putdata.child("mode").setValue(mode.get(finalI));
                                                                                             putdata.child("address").setValue(address.get(finalI));
+                                                                                            putdata.child("date").setValue(Date.get(finalI));
 
                                                                                         }
 
@@ -448,6 +453,7 @@ public class HomePage extends AppCompatActivity {
                                                                                         putdata.child("number").setValue(PhoneNumber.get(finalI));
                                                                                         putdata.child("mode").setValue(mode.get(finalI));
                                                                                         putdata.child("address").setValue(address.get(finalI));
+                                                                                        putdata.child("date").setValue(Date.get(finalI));
 
                                                                                     }
 
@@ -578,6 +584,7 @@ public class HomePage extends AppCompatActivity {
                                                                                     putdata.child("number").setValue(PhoneNumber.get(finalI));
                                                                                     putdata.child("mode").setValue(mode.get(finalI));
                                                                                     putdata.child("address").setValue(address.get(finalI));
+                                                                                    putdata.child("date").setValue(Date.get(finalI));
 
                                                                                 }
 
@@ -686,5 +693,9 @@ public class HomePage extends AppCompatActivity {
 
     public void AlOrder(View view) {
         startActivity(new Intent(this,AllOrderList.class));
+    }
+
+    public void Completed(View view) {
+        startActivity(new Intent(this, CompletedOrders.class));
     }
 }

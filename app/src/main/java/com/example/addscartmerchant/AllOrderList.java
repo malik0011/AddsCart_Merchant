@@ -157,8 +157,9 @@ public class AllOrderList extends AppCompatActivity {
                                                                                 String number = (String)PhoneNumber.get(finalI);
                                                                                 String Mode = (String) mode.get(finalI);
                                                                                 String Address = (String) address.get(finalI);
+                                                                                String date = (String) Date.get(finalI);
 
-                                                                                holder.add(new Order(name,number,"",items,orderid,lat,lon,Address,Mode));
+                                                                                holder.add(new Order(name,number,"",items,orderid,lat,lon,Address,Mode,date));
                                                                                 adapter.notifyDataSetChanged();
                                                                             }
 

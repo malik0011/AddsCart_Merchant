@@ -8,10 +8,9 @@ public class Order {
     String OrderId;
     String userLat,userLon;
     String address,mode;
+    String Userdate;
 
-    public Order(){}
-
-    public Order(String userName, String userPhoneNo, String userLatLon, String userItems, String orderId, String userLat, String userLon, String address, String mode) {
+    public Order(String userName, String userPhoneNo, String userLatLon, String userItems, String orderId, String userLat, String userLon, String address, String mode, String userdate) {
         UserName = userName;
         this.userPhoneNo = userPhoneNo;
         this.userLatLon = userLatLon;
@@ -21,7 +20,10 @@ public class Order {
         this.userLon = userLon;
         this.address = address;
         this.mode = mode;
+        Userdate = userdate;
     }
+
+    public Order(){}
 
     public String getUserName() {
         return UserName;
@@ -94,7 +96,16 @@ public class Order {
     public void setMode(String mode) {
         this.mode = mode;
     }
-//    public Order(String userName, String userPhoneNo, String userLatLon, String userItems, String orderId, String userLat, String userLon) {
+
+    public String getUserdate() {
+        return Userdate;
+    }
+
+    public void setUserdate(String userdate) {
+        Userdate = userdate;
+    }
+
+    //    public Order(String userName, String userPhoneNo, String userLatLon, String userItems, String orderId, String userLat, String userLon) {
 //        UserName = userName;
 //        this.userPhoneNo = userPhoneNo;
 //        this.userLatLon = userLatLon;

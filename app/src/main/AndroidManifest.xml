@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AddsCartMerchant">
         <activity
+            android:name=".CompletedOrders"
+            android:exported="false" />
+        <activity
             android:name=".AllOrderList"
             android:exported="false" />
         <activity
