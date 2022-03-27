@@ -91,6 +91,8 @@ package com.example.addscartmerchant;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -123,6 +125,7 @@ import com.karumi.dexter.listener.single.PermissionListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -144,8 +147,18 @@ public class recyclerAdapter extends RecyclerView.Adapter<myviewholder> {
         return new myviewholder(view);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onBindViewHolder(@NonNull myviewholder holder, @SuppressLint("RecyclerView") int position) {
+
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDateTime now = LocalDateTime.now();
+        String tempdate = String.valueOf(dtf.format(now));
+        String udate = data.get(position).getUserdate();
+        if(!tempdate.equals(udate)){
+            holder.complete.setEnabled(false);
+            Toast.makeText(holder.itemView.getContext(), "This feature only works on Today's Order!", Toast.LENGTH_LONG).show();
+        }
         holder.name.setText(data.get(position).getUserName());
         holder.OrderIdTv.setText(data.get(position).getOrderId());
         holder.ItemsView.setText(data.get(position).getUserItems());
@@ -166,83 +179,162 @@ public class recyclerAdapter extends RecyclerView.Adapter<myviewholder> {
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                if(ContextCompat.checkSelfPermission(view.getContext(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED){
-//                    ActivityCompat.requestPermissions(this,new String[] {Manifest.permission.CALL_PHONE}, REQUEST_CALL);
-//                }
-//                else{
-//                    String phoneNo = "tel:"+"8867825522";
-//                    Intent intent = new Intent(Intent.ACTION_CALL);
-//                    intent.setData(Uri.parse(phoneNo));
-//                    view.getContext().startActivity(intent);
-//                }
                 String phoneNo = "tel:"+data.get(position).getUserPhoneNo();
                 Intent intent = new Intent(Intent.ACTION_CALL);
                 intent.setData(Uri.parse(phoneNo));
                 view.getContext().startActivity(intent);
                 Toast.makeText(view.getContext(), "Calling..."+data.get(position).getUserPhoneNo(), Toast.LENGTH_SHORT).show();
-//                notifyDataSetChanged();
-
-                //have to firebase data delete code here----
-
-                //code for del data form firebase
             }
         });
         holder.reshedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-//                String sDate1=;
-//                Date date1= null;
-//                try {
-//                    date1 = new SimpleDateFormat("dd-MM-yyyy").parse(sDate1);
-//                } catch (ParseException e) {
-//                    e.printStackTrace();
-//                }
-//                Date dt = date1;
-//                Date tomorrow = new Date(dt.getTime() + (1000 * 60 * 60 * 24));
-//                SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-//                String strDate= formatter.format(tomorrow);
+                AlertDialog.Builder builder
+                        = new AlertDialog
+                        .Builder(view.getContext());
+                builder.setMessage("Do you want to reschedule this order?");
+                builder.setTitle("Alert!");
+                builder.setCancelable(false);
+                builder
+                        .setPositiveButton(
+                                "Yes",
+                                new DialogInterface
+                                        .OnClickListener() {
 
-                DatabaseReference refdate = FirebaseDatabase.getInstance().getReference("OrderId").child("Date").child(data.get(position).getOrderId());
-                refdate.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        String sDate1= (String) snapshot.getValue();
-                        Date date1= null;
-                        try {
-                            date1 = new SimpleDateFormat("dd-MM-yyyy").parse(sDate1);
-                        } catch (ParseException e) {
-                            e.printStackTrace();
-                        }
-                        Date dt = date1;
-                        Date tomorrow = new Date(dt.getTime() + (1000 * 60 * 60 * 24));
-                        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-                        String strDate= formatter.format(tomorrow);
-                        refdate.setValue(strDate);
-                    }
+                                    @Override
+                                    public void onClick(DialogInterface dialog,
+                                                        int which)
+                                    {
+                                        DatabaseReference refdate = FirebaseDatabase.getInstance().getReference("OrderId").child("Date").child(data.get(position).getOrderId());
+                                        refdate.addListenerForSingleValueEvent(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                String sDate1= (String) snapshot.getValue();
+                                                Date date1= null;
+                                                try {
+                                                    date1 = new SimpleDateFormat("dd-MM-yyyy").parse(sDate1);
+                                                } catch (ParseException e) {
+                                                    e.printStackTrace();
+                                                }
+                                                Date dt = date1;
+                                                Date tomorrow = new Date(dt.getTime() + (1000 * 60 * 60 * 24));
+                                                SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+                                                String strDate= formatter.format(tomorrow);
+                                                refdate.setValue(strDate);
+                                            }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError error) {
 
-                    }
-                });
-//                refdate.addValueEventListener(new ValueEventListener() {
-//                    @RequiresApi(api = Build.VERSION_CODES.O)
+                                            }
+                                        });
+                                        data.remove(holder.getPosition());
+                                        notifyDataSetChanged();
+                                        Toast.makeText(view.getContext(), "To reflect changes revisit this page!", Toast.LENGTH_LONG).show();
+                                    }
+                                });
+                builder
+                        .setNegativeButton(
+                                "No",
+                                new DialogInterface
+                                        .OnClickListener() {
+
+                                    @Override
+                                    public void onClick(DialogInterface dialog,
+                                                        int which)
+                                    {
+                                        dialog.cancel();
+                                    }
+                                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+            }
+        });
+        holder.pickupdate.setText(data.get(position).getUserdate());
+        holder.complete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder
+                        = new AlertDialog
+                        .Builder(view.getContext());
+                builder.setMessage("Do you want to complete this order?");
+                builder.setTitle("Alert!");
+                builder.setCancelable(false);
+                builder
+                        .setPositiveButton(
+                                "Yes",
+                                new DialogInterface
+                                        .OnClickListener() {
+
+                                    @Override
+                                    public void onClick(DialogInterface dialog,
+                                                        int which)
+                                    {
+                                        DatabaseReference refdate = FirebaseDatabase.getInstance().getReference("OrderId").child("Date").child(data.get(position).getOrderId());
+                                        refdate.addListenerForSingleValueEvent(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                String sDate1= (String) snapshot.getValue();
+                                                Date date1= null;
+                                                try {
+                                                    date1 = new SimpleDateFormat("dd-MM-yyyy").parse(sDate1);
+                                                } catch (ParseException e) {
+                                                    e.printStackTrace();
+                                                }
+                                                Date dt = date1;
+                                                Date tomorrow = new Date(dt.getTime() - (1000 * 60 * 60 * 24));
+                                                SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+                                                String strDate= formatter.format(tomorrow);
+                                                refdate.setValue(strDate);
+
+                                            }
+
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError error) {
+
+                                            }
+                                        });
+                                        DatabaseReference refstatus = FirebaseDatabase.getInstance().getReference("OrderId").child("IsComplete").child(data.get(position).getOrderId());
+                                        refstatus.setValue("True");
+                                        data.remove(holder.getPosition());
+                                        notifyDataSetChanged();
+                                        Toast.makeText(view.getContext(), "To reflect changes revisit this page!", Toast.LENGTH_LONG).show();
+
+                                    }
+                                });
+                builder
+                        .setNegativeButton(
+                                "No",
+                                new DialogInterface
+                                        .OnClickListener() {
+
+                                    @Override
+                                    public void onClick(DialogInterface dialog,
+                                                        int which)
+                                    {
+                                        dialog.cancel();
+                                    }
+                                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+
+//                DatabaseReference refdate = FirebaseDatabase.getInstance().getReference("OrderId").child("Date").child(data.get(position).getOrderId());
+//                refdate.addListenerForSingleValueEvent(new ValueEventListener() {
 //                    @Override
 //                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                        change = (String) snapshot.getValue();
-//                        int orderid = Integer.parseInt(data.get(position).getOrderId());
-//
-////                        DatabaseReference upload = FirebaseDatabase.getInstance().getReference("OrderId").child("Date").child(String.valueOf(orderid));
-////                        upload.setValue(strDate);
-////                        LocalDateTime today = LocalDateTime.now();     //Today
-////                        LocalDateTime tomorrow = today.plusDays(1);     //Plus 1 day
-////                        LocalDateTime yesterday = today.minusDays(1);   //Minus 1 day
-////                        System.out.println("Today:     "+today);
-////                        System.out.println("Tomorrow:  "+tomorrow);
-////                        System.out.println("Yesterday: "+yesterday);
-////                        DateTime dtOrg = new DateTime(date1);
-////                        DateTime dtPlusOne = dtOrg.plusDays(1);
+//                        String sDate1= (String) snapshot.getValue();
+//                        Date date1= null;
+//                        try {
+//                            date1 = new SimpleDateFormat("dd-MM-yyyy").parse(sDate1);
+//                        } catch (ParseException e) {
+//                            e.printStackTrace();
+//                        }
+//                        Date dt = date1;
+//                        Date tomorrow = new Date(dt.getTime() - (1000 * 60 * 60 * 24));
+//                        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+//                        String strDate= formatter.format(tomorrow);
+//                        refdate.setValue(strDate);
 //                    }
 //
 //                    @Override

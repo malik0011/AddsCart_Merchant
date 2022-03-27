@@ -4,6 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Programming/AndroidStudioProjects/AddsCart_Merchant-1/app/src/main/res/layout/activity_all_order_list.xml" value="0.264" />
+        <entry key="..\:/Programming/AndroidStudioProjects/AddsCart_Merchant-1/app/src/main/res/layout/activity_completed_orders.xml" value="0.25416666666666665" />
+        <entry key="..\:/Programming/AndroidStudioProjects/AddsCart_Merchant-1/app/src/main/res/layout/activity_futures_pickup.xml" value="0.25416666666666665" />
+        <entry key="..\:/Programming/AndroidStudioProjects/AddsCart_Merchant-1/app/src/main/res/layout/activity_home_page.xml" value="0.1947463768115942" />
+        <entry key="..\:/Programming/AndroidStudioProjects/AddsCart_Merchant-1/app/src/main/res/layout/activity_todays_pickup.xml" value="0.25416666666666665" />
+        <entry key="..\:/Programming/AndroidStudioProjects/AddsCart_Merchant-1/app/src/main/res/layout/all_order_list.xml" value="0.25416666666666665" />
         <entry key="..\:/Programming/AndroidStudioProjects/AddsCart_Merchant-1/app/src/main/res/layout/order_list.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Ayan/Desktop/AS2DEV/AddsCart Merchant/app/src/main/res/drawable/input_bg.xml" value="0.193" />
         <entry key="..\:/Users/Ayan/Desktop/AS2DEV/AddsCart Merchant/app/src/main/res/layout/activity_admin_panel.xml" value="0.264" />

@@ -98,6 +98,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.WindowManager;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -117,6 +118,7 @@ public class TodaysPickup extends AppCompatActivity {
 
     FirebaseDatabase fdata;
     FirebaseAuth fAuth;
+    TextView totalorders;
 
     ArrayList<String> ItemType = new ArrayList<String>();
     ArrayList<String> FullAddress = new ArrayList<String>();
@@ -136,6 +138,7 @@ public class TodaysPickup extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new recyclerAdapter(dataQueue());
         recyclerView.setAdapter(adapter);
+        totalorders = findViewById(R.id.alltodayorders);
     }
     public ArrayList<Order> dataQueue(){
 
@@ -163,11 +166,15 @@ public class TodaysPickup extends AppCompatActivity {
                     String number = (String) datasnapshot.child("number").getValue();
                     String mode = (String) datasnapshot.child("mode").getValue();
                     String address = (String) datasnapshot.child("address").getValue();
+                    String date = (String) datasnapshot.child("date").getValue();
 
-                    holder.add(new Order(name,number,"",items,orderid,lat,lon,address,mode));
+                    holder.add(new Order(name,number,"",items,orderid,lat,lon,address,mode,date));
                 }
                 adapter.notifyDataSetChanged();
-
+                if(holder.isEmpty())
+                    totalorders.setText("0");
+                else
+                    totalorders.setText(String.valueOf(holder.size()));
 
             }
 

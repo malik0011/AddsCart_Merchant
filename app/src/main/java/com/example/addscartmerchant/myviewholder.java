@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class myviewholder extends RecyclerView.ViewHolder {
 
-    TextView name,OrderIdTv,ItemsView,address,mode;
-    Button TrackBtn,delete,reshedule;
+    TextView name,OrderIdTv,ItemsView,address,mode,pickupdate;
+    Button TrackBtn,delete,reshedule, complete;
     public myviewholder(@NonNull View itemView) {
         super(itemView);
         name = (TextView)itemView.findViewById(R.id.UserName);
@@ -18,9 +18,11 @@ public class myviewholder extends RecyclerView.ViewHolder {
         ItemsView = (TextView) itemView.findViewById(R.id.Items);
         address = (TextView) itemView.findViewById(R.id.address);
         mode = (TextView) itemView.findViewById(R.id.mode);
+        pickupdate = (TextView) itemView.findViewById(R.id.pickupdate);
         TrackBtn = (Button) itemView.findViewById(R.id.trackOrder);
         delete = (Button) itemView.findViewById(R.id.Delete);
         reshedule = (Button) itemView.findViewById(R.id.Reschedule);
+        complete = (Button) itemView.findViewById(R.id.complete);
 
     }
 }

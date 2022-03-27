@@ -90,6 +90,32 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Date:"
+                            android:textStyle="bold"
+                            android:textColor="#FFEB3B" />
+                        <TextView
+                            android:id="@+id/pickupdate"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="5dp"
+                            android:fontFamily="@font/ubuntu"
+                            android:text="01-01-2022"
+                            android:gravity="center_vertical"
+                            android:textColor="#000000"
+                            android:textSize="12dp" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
                         android:orientation="vertical">
 
                         <TextView
@@ -198,6 +224,16 @@
                             android:backgroundTint="@color/black"
                             android:text="Reschedule"
                             android:textSize="11dp"
+                            android:textAllCaps="false"
+                            />
+                        <Button
+                            android:id="@+id/complete"
+                            android:textColor="@color/green"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/black"
+                            android:text="Completed"
+                            android:textSize="12dp"
                             android:textAllCaps="false"
                             />
                     </LinearLayout>
