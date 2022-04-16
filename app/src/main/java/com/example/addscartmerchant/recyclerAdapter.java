@@ -157,7 +157,7 @@ public class recyclerAdapter extends RecyclerView.Adapter<myviewholder> {
         String udate = data.get(position).getUserdate();
         if(!tempdate.equals(udate)){
             holder.complete.setEnabled(false);
-            Toast.makeText(holder.itemView.getContext(), "This feature only works on Today's Order!", Toast.LENGTH_LONG).show();
+            //Toast.makeText(holder.itemView.getContext(), "This feature only works on Today's Order!", Toast.LENGTH_LONG).show();
         }
         holder.name.setText(data.get(position).getUserName());
         holder.OrderIdTv.setText(data.get(position).getOrderId());

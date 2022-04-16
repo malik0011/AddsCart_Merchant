@@ -313,7 +313,7 @@ public class FuturesPickup extends AppCompatActivity {
         String finalformatdate = formatdate.substring(0,3)+finaldate+formatdate.substring(5);
 
         DatabaseReference getdata = fdata.getReference("FuturePickup");
-        getdata.addValueEventListener(new ValueEventListener() {
+        getdata.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot datasnapshot: snapshot.getChildren()) {
@@ -352,7 +352,7 @@ public class FuturesPickup extends AppCompatActivity {
         super.onBackPressed();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("FuturePickup");
         ref.setValue(null);
-        startActivity(new Intent(this, HomePage.class));
-        finish();
+//        startActivity(new Intent(this, HomePage.class));
+//        finish();
     }
 }

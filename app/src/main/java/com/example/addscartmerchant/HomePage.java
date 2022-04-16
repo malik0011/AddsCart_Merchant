@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
@@ -41,6 +42,7 @@ public class HomePage extends AppCompatActivity {
     FirebaseDatabase fdata;
     FirebaseAuth fAuth;
     Button Today,Future,all,complete;
+    ProgressBar pbar;
 
     ArrayList<String> ItemType = new ArrayList<String>();
     ArrayList<String> Date = new ArrayList<String>();
@@ -65,6 +67,7 @@ public class HomePage extends AppCompatActivity {
         Future = findViewById(R.id.button2);
         all = findViewById(R.id.button3);
         complete = findViewById(R.id.button4);
+        pbar = findViewById(R.id.button8);
 
         fAuth = FirebaseAuth.getInstance();
         fdata = FirebaseDatabase.getInstance();
@@ -82,6 +85,8 @@ public class HomePage extends AppCompatActivity {
         DatabaseReference delfuturepickup = fdata.getReference("FuturePickup");
         delfuturepickup.setValue(null);
 
+        Toast.makeText(this, "Please wait!We are Arranging your data..", Toast.LENGTH_SHORT).show();
+
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -91,8 +96,10 @@ public class HomePage extends AppCompatActivity {
                 Future.setEnabled(true);
                 all.setEnabled(true);
                 complete.setEnabled(true);
+                pbar.setVisibility(View.INVISIBLE);
+
             }
-        }, 4000);
+        }, 3700);
 
 
 
@@ -666,10 +673,6 @@ public class HomePage extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
-                    case R.id.history:
-                        Intent intent = new Intent(HomePage.this,OrderHistory.class);
-                        startActivity(intent);
-                        break;
                     case R.id.adminPanel:
                         Intent intent1 = new Intent(HomePage.this,AdminPanel.class);
                         startActivity(intent1);
