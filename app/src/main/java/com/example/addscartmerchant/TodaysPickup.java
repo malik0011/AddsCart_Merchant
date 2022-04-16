@@ -191,5 +191,7 @@ public class TodaysPickup extends AppCompatActivity {
         super.onBackPressed();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("TodayPickup");
         ref.setValue(null);
+        startActivity(new Intent(this,HomePage.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
+
     }
 }

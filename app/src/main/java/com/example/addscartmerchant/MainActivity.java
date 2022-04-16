@@ -66,29 +66,32 @@ public class MainActivity extends AppCompatActivity {
                                 logoname.setAnimation(fadeoutAnim);
                                 gifSplash.setAnimation(fadeoutAnim);
                                 logoname.setVisibility(View.INVISIBLE);
-
+                                startActivity(new Intent(getApplicationContext(),HomePage.class));
+                                finish();
                             }
                         },3000);
 
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                onboardingScreen = getSharedPreferences("OnBoardingScreen",MODE_PRIVATE);
-                                boolean isfirstTime = onboardingScreen.getBoolean("FirstTime",true);
-                                if (isfirstTime){
-                                    SharedPreferences.Editor editor = onboardingScreen.edit();
-                                    editor.putBoolean("FirstTime",false);
-                                    editor.commit();
-                                    startActivity(new Intent(MainActivity.this, HomePage.class));
-                                    finish();
-                                }
-                                else{
-                                    startActivity(new Intent(MainActivity.this, HomePage.class));
-                                    finish();
-                                }
 
-                            }
-                        }, 3000);
+
+//                        new Handler().postDelayed(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                onboardingScreen = getSharedPreferences("OnBoardingScreen",MODE_PRIVATE);
+//                                boolean isfirstTime = onboardingScreen.getBoolean("FirstTime",true);
+//                                if (isfirstTime){
+//                                    SharedPreferences.Editor editor = onboardingScreen.edit();
+//                                    editor.putBoolean("FirstTime",false);
+//                                    editor.commit();
+//                                    startActivity(new Intent(MainActivity.this, HomePage.class));
+//                                    finish();
+//                                }
+//                                else{
+//                                    startActivity(new Intent(MainActivity.this, HomePage.class));
+//                                    finish();
+//                                }
+//
+//                            }
+//                        }, 3000);
                     }
                     @Override
                     public void onPermissionDenied(PermissionDeniedResponse permissionDeniedResponse) {

@@ -352,6 +352,8 @@ public class FuturesPickup extends AppCompatActivity {
         super.onBackPressed();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("FuturePickup");
         ref.setValue(null);
+        startActivity(new Intent(this,HomePage.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
+
 //        startActivity(new Intent(this, HomePage.class));
 //        finish();
     }

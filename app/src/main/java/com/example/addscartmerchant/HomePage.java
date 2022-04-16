@@ -72,6 +72,10 @@ public class HomePage extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         fdata = FirebaseDatabase.getInstance();
 
+        Toast.makeText(this, "Please wait!We are Arranging your data..", Toast.LENGTH_SHORT).show();
+
+
+
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
         Date date = new Date();
         String formatdate = formatter.format(date);
@@ -84,25 +88,6 @@ public class HomePage extends AppCompatActivity {
         deltodaypickup.setValue(null);
         DatabaseReference delfuturepickup = fdata.getReference("FuturePickup");
         delfuturepickup.setValue(null);
-
-        Toast.makeText(this, "Please wait!We are Arranging your data..", Toast.LENGTH_SHORT).show();
-
-        final Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                // Do something after 5s = 5000ms
-                Today.setEnabled(true);
-                Future.setEnabled(true);
-                all.setEnabled(true);
-                complete.setEnabled(true);
-                pbar.setVisibility(View.INVISIBLE);
-
-            }
-        }, 3700);
-
-
-
 
 //        Date
         DatabaseReference refnumber = fdata.getReference("OrderId").child("Date");
@@ -657,7 +642,19 @@ public class HomePage extends AppCompatActivity {
 
             }
         });
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                // Do something after 5s = 5000ms
+                Today.setEnabled(true);
+                Future.setEnabled(true);
+                all.setEnabled(true);
+                complete.setEnabled(true);
+                pbar.setVisibility(View.INVISIBLE);
 
+            }
+        }, 4500);
         img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
